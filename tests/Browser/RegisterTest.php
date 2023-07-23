@@ -19,8 +19,8 @@ class RegisterTest extends DuskTestCase
                     ->type('password', 'J@hn Sm3th')
                     ->type('password_confirmation', 'J@hn Sm3th')
                     ->click('button[type="submit"]')
-                    ->waitForText('Thanks for signing up!')
-                    ->assertPathIs('/verify-email');
+                    ->waitForLocation('/verify-email')
+                    ->assertsee('Thanks for signing up!');
         });
     }
 }
