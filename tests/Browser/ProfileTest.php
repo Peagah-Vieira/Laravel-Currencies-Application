@@ -31,12 +31,11 @@ class ProfileTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $new_name = 'John Doe';
-            $profile_information_save_button = '/html/body/div/main/div/div/div[1]/div/section/form[2]/div[3]/button';
             $browser
                 ->loginAs($this->user)
                 ->visit('/profile')
                 ->type('name', $new_name)
-                ->clickAtXPath($profile_information_save_button)
+                ->click("@profile_update_button")
                 ->assertSee('Saved.')
                 ->logout();
         });
@@ -46,12 +45,11 @@ class ProfileTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $new_email = 'newemail@gmail.com';
-            $profile_information_save_button = '/html/body/div/main/div/div/div[1]/div/section/form[2]/div[3]/button';
             $browser
                 ->loginAs($this->user)
                 ->visit('/profile')
                 ->type('email', $new_email)
-                ->clickAtXPath($profile_information_save_button)
+                ->click("@profile_update_button")
                 ->assertSee('Saved.')
                 ->logout();
         });
@@ -62,16 +60,30 @@ class ProfileTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $string_password = 'Ver@ify12';
             $new_password = 'newpassword';
-            $profile_password_save_button = '/html/body/div/main/div/div/div[2]/div/section/form/div[4]/button';
             $browser
                 ->loginAs($this->user)
                 ->visit('/profile')
                 ->type('current_password', $string_password)
                 ->type('password', $new_password)
                 ->type('password_confirmation', $new_password)
-                ->clickAtXPath($profile_password_save_button)
+                ->click("@password_update_button")
                 ->assertSee('Saved.')
                 ->logout();
+        });
+    }
+
+    public function test_user_delete_is_working_as_expected(): void
+    {
+        $this->browse(function (Browser $browser) {
+            $string_password = 'Ver@ify12';
+            $browser
+                ->loginAs($this->user)
+                ->visit('/profile')
+                ->click('@delete_button')
+                ->waitForText('Are you sure you want to delete your account?')
+                ->type('@confirm_delete_password', $string_password)
+                ->click('@confirm_delete_button')
+                ->assertPathIs('/');
         });
     }
 }
