@@ -14,28 +14,23 @@ class LoginTest extends DuskTestCase
     protected function setUp(): void
     {
         parent::setUp();
-
         $this->artisan('migrate:fresh');
-
-        User::factory()->create([
-            'email' => 'unverified@gmail.com',
-            'password' => 'Unver@ify12',
-            'email_verified_at' => null,
-        ]);
-
-        User::factory()->create([
-            'email' => 'verified@gmail.com',
-            'password' => 'Ver@ify12',
-            'email_verified_at' => now(),
-        ]);
     }
 
     public function test_unverified_user_login_is_working_as_expected(): void
     {
-        $this->browse(function (Browser $browser) {
+        $string_password = 'Unver@ify12';
+
+        $user_unverified = User::factory()->create([
+            'email' => 'unverified@gmail.com',
+            'password' => $string_password,
+            'email_verified_at' => null,
+        ]);
+
+        $this->browse(function (Browser $browser) use ($user_unverified, $string_password){
             $browser->visit('/login')
-                    ->type('email', 'unverified@gmail.com')
-                    ->type('password', 'Unver@ify12')
+                    ->type('email', $user_unverified->email)
+                    ->type('password', $string_password)
                     ->click('button[type="submit"]')
                     ->waitForLocation('/verify-email')
                     ->assertsee('Thanks for signing up!')
@@ -45,10 +40,18 @@ class LoginTest extends DuskTestCase
 
     public function test_verified_user_login_is_working_as_expected(): void
     {
-        $this->browse(function (Browser $browser) {
+        $string_password = 'Ver@ify12';
+
+        $user_verified = User::factory()->create([
+            'email' => 'verified@gmail.com',
+            'password' => $string_password,
+            'email_verified_at' => now(),
+        ]);
+
+        $this->browse(function (Browser $browser) use ($user_verified, $string_password){
             $browser->visit('/login')
-                    ->type('email', 'verified@gmail.com')
-                    ->type('password', 'Ver@ify12')
+                    ->type('email', $user_verified->email)
+                    ->type('password', $string_password)
                     ->click('button[type="submit"]')
                     ->waitForLocation('/dashboard')
                     ->assertSee("You're logged in!")
