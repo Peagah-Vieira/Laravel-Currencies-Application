@@ -10,6 +10,7 @@
     </header>
 
     <x-danger-button
+        dusk="delete_button"
         x-data=""
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
     >{{ __('Delete Account') }}</x-danger-button>
@@ -35,6 +36,7 @@
                     name="password"
                     type="password"
                     class="mt-1 block w-3/4"
+                    dusk="confirm_delete_password"
                     placeholder="{{ __('Password') }}"
                 />
 
@@ -46,7 +48,7 @@
                     {{ __('Cancel') }}
                 </x-secondary-button>
 
-                <x-danger-button class="ml-3">
+                <x-danger-button dusk="confirm_delete_button" class="ml-3">
                     {{ __('Delete Account') }}
                 </x-danger-button>
             </div>
