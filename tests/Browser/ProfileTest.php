@@ -35,13 +35,17 @@ class ProfileTest extends DuskTestCase
         // Logout the user
         $this->browse(function (Browser $browser) {
             $browser->logout();
-
         });
 
         // Clean-up steps
         parent::tearDown();
     }
 
+    /**
+     * @group profile
+     *
+     * @return void
+     */
     public function test_user_name_update_is_working_as_expected(): void
     {
         $this->browse(function (Browser $browser) {
@@ -50,12 +54,16 @@ class ProfileTest extends DuskTestCase
                 ->loginAs($this->user)
                 ->visit(self::ROUTE_USER_PROFILE)
                 ->type('name', $new_name)
-                ->click("@profile_update_button")
-                ->assertSee('Saved.')
-                ->logout();
+                ->click('@profile_update_button')
+                ->assertSee('Saved.');
         });
     }
 
+    /**
+     * @group profile
+     *
+     * @return void
+     */
     public function test_user_email_update_is_working_as_expected(): void
     {
         $this->browse(function (Browser $browser) {
@@ -64,12 +72,16 @@ class ProfileTest extends DuskTestCase
                 ->loginAs($this->user)
                 ->visit(self::ROUTE_USER_PROFILE)
                 ->type('email', $new_email)
-                ->click("@profile_update_button")
-                ->assertSee('Saved.')
-                ->logout();
+                ->click('@profile_update_button')
+                ->assertSee('Saved.');
         });
     }
 
+    /**
+     * @group profile
+     *
+     * @return void
+     */
     public function test_user_password_update_is_working_as_expected(): void
     {
         $this->browse(function (Browser $browser) {
@@ -81,12 +93,16 @@ class ProfileTest extends DuskTestCase
                 ->type('current_password', $string_password)
                 ->type('password', $new_password)
                 ->type('password_confirmation', $new_password)
-                ->click("@password_update_button")
-                ->assertSee('Saved.')
-                ->logout();
+                ->click('@password_update_button')
+                ->assertSee('Saved.');
         });
     }
 
+    /**
+     * @group profile
+     *
+     * @return void
+     */
     public function test_user_delete_is_working_as_expected(): void
     {
         $this->browse(function (Browser $browser) {
