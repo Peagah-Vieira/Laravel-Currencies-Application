@@ -11,8 +11,11 @@ class LoginTest extends DuskTestCase
 {
     use DatabaseMigrations;
 
+    const ROUTE_USER_LOGIN = 'login';
+
     protected function setUp(): void
     {
+        // Prerequisite steps
         parent::setUp();
 
         // Freshing the database
@@ -35,33 +38,52 @@ class LoginTest extends DuskTestCase
         ]);
     }
 
+    protected function tearDown(): void
+    {
+        // Logout the user
+        $this->browse(function (Browser $browser) {
+            $browser->logout();
+        });
+
+        // Clean-up steps
+        parent::tearDown();
+    }
+
+    /**
+     * @group login
+     *
+     * @return void
+     */
     public function test_unverified_user_login_is_working_as_expected(): void
     {
         $string_password = 'Unver@ify12';
         $this->browse(function (Browser $browser) use ($string_password) {
             $browser
-                ->visit('/login')
+                ->visit(self::ROUTE_USER_LOGIN)
                 ->type('email', $this->user_unverified->email)
                 ->type('password', $string_password)
                 ->click('button[type="submit"]')
                 ->waitForLocation('/verify-email')
-                ->assertsee('Thanks for signing up!')
-                ->logout();
+                ->assertsee('Thanks for signing up!');
         });
     }
 
+    /**
+     * @group login
+     *
+     * @return void
+     */
     public function test_verified_user_login_is_working_as_expected(): void
     {
         $string_password = 'Ver@ify12';
         $this->browse(function (Browser $browser) use ($string_password) {
             $browser
-                ->visit('/login')
+                ->visit(self::ROUTE_USER_LOGIN)
                 ->type('email', $this->user_verified->email)
                 ->type('password', $string_password)
                 ->click('button[type="submit"]')
                 ->waitForLocation('/dashboard')
-                ->assertSee("You're logged in!")
-                ->logout();
+                ->assertSee("You're logged in!");
         });
     }
 }
