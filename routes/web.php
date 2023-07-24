@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CurrencyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('currencies')->group(function () {
+    Route::get('recent-exchange', [CurrencyController::class, 'exchange'])->name('currencies.exchange');
+    Route::get('convert', [CurrencyController::class, 'convert'])->name('currencies.convert');
 });
 
 Route::get('/dashboard', function () {
