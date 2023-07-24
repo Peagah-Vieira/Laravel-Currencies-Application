@@ -1,6 +1,6 @@
 # Laravel Currencies Web Application
 
-A web application to list and convert currencies built with Laravel.
+A web application that consumes an external API to list and convert currencies built with Laravel.
 
 ## Features
 
