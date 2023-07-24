@@ -11,8 +11,11 @@ class ProfileTest extends DuskTestCase
 {
     use DatabaseMigrations;
 
+    const ROUTE_USER_PROFILE = '/profile';
+
     protected function setUp(): void
     {
+        // Prerequisite steps
         parent::setUp();
 
         // Freshing the database
@@ -27,13 +30,25 @@ class ProfileTest extends DuskTestCase
         ]);
     }
 
+    protected function tearDown(): void
+    {
+        // Logout the user
+        $this->browse(function (Browser $browser) {
+            $browser->logout();
+
+        });
+
+        // Clean-up steps
+        parent::tearDown();
+    }
+
     public function test_user_name_update_is_working_as_expected(): void
     {
         $this->browse(function (Browser $browser) {
             $new_name = 'John Doe';
             $browser
                 ->loginAs($this->user)
-                ->visit('/profile')
+                ->visit(self::ROUTE_USER_PROFILE)
                 ->type('name', $new_name)
                 ->click("@profile_update_button")
                 ->assertSee('Saved.')
@@ -47,7 +62,7 @@ class ProfileTest extends DuskTestCase
             $new_email = 'newemail@gmail.com';
             $browser
                 ->loginAs($this->user)
-                ->visit('/profile')
+                ->visit(self::ROUTE_USER_PROFILE)
                 ->type('email', $new_email)
                 ->click("@profile_update_button")
                 ->assertSee('Saved.')
@@ -62,7 +77,7 @@ class ProfileTest extends DuskTestCase
             $new_password = 'newpassword';
             $browser
                 ->loginAs($this->user)
-                ->visit('/profile')
+                ->visit(self::ROUTE_USER_PROFILE)
                 ->type('current_password', $string_password)
                 ->type('password', $new_password)
                 ->type('password_confirmation', $new_password)
@@ -78,7 +93,7 @@ class ProfileTest extends DuskTestCase
             $string_password = 'Ver@ify12';
             $browser
                 ->loginAs($this->user)
-                ->visit('/profile')
+                ->visit(self::ROUTE_USER_PROFILE)
                 ->click('@delete_button')
                 ->waitForText('Are you sure you want to delete your account?')
                 ->type('@confirm_delete_password', $string_password)
