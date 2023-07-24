@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 
 class CurrencyController extends Controller
 {
-    public function exchange()
+    public function list_currencies()
     {
         $client = new Client();
 
-        $url =  env('CURRENCY_API_URL');
+        $url = env('CURRENCY_API_LIST_URL');
 
         $params = [
             'query' => [
-                'access_key' => env('CURRENCY_API_ACCESS_KEY'),
+                'apikey' => env('CURRENCY_API_KEY'),
              ]
         ];
 
@@ -23,6 +23,6 @@ class CurrencyController extends Controller
 
         $response_body = json_decode($response->getBody());
 
-        return view('currencies.exchange', compact('response_body'));
+        return view('currencies.list', compact('response_body'));
     }
 }
