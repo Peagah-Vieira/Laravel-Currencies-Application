@@ -63,7 +63,7 @@ class CurrencyController extends Controller
 
         $response_body = json_decode($response->getBody());
 
-        $page_title = $response_body->old_amount . ' ' . $response_body->old_currency . ' ' . 'to' . ' ' . $response_body->new_currency;
+        $page_title = "$response_body->old_amount $response_body->old_currency to $response_body->new_currency";
 
         return back()->with([
             'page_title' => $page_title,
