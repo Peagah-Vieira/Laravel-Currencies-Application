@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ConversionHistory;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,8 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Receive 'have', 'want' and 'amount' from the request and return a response with dynamic title and converted amount
+     * Receive 'have', 'want' and 'amount' from the request and return a response with dynamic title and converted amount,
+     * Store on ConversionHistory table the converted amount
      *
      * @param Request $request
      * @return JsonResponse
@@ -62,6 +64,13 @@ class CurrencyController extends Controller
         $response = $client->request('GET', $url, $params);
 
         $response_body = json_decode($response->getBody());
+
+        ConversionHistory::create([
+            'old_currency' => $response_body->old_currency,
+            'new_currency' => $response_body->new_currency,
+            'old_amount' => $response_body->old_amount,
+            'new_amount' => $response_body->new_amount,
+        ]);
 
         $page_title = "$response_body->old_amount $response_body->old_currency to $response_body->new_currency";
 
