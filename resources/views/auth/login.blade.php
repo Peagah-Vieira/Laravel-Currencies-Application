@@ -48,15 +48,23 @@
 
         <div class="relative flex items-center justify-center text-center">
             <div class="absolute border-t border-gray-200 w-full h-px"></div>
-            <p class="inline-block relative bg-white text-sm p-2 rounded-full font-medium text-gray-500 dark:bg-gray-800 dark:text-gray-100">
+            <p
+                class="inline-block relative bg-white text-sm p-2 rounded-full font-medium text-gray-500 dark:bg-gray-800 dark:text-gray-100">
                 {{ __('Or log in via') }}
             </p>
         </div>
 
         <div class="grid gap-4 grid-cols-2 grid-rows-2">
             <div class="grid grid-cols-1 gap-4">
-                <a href="{{ route('auth.github')}}" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                <a href="{{ route('auth.github') }}"
+                    class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                     {{ __('GitHub') }}
+                </a>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+                <a href="{{ route('auth.google') }}"
+                    class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                    {{ __('Google') }}
                 </a>
             </div>
         </div>

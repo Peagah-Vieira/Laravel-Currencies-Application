@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\GithubController;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
@@ -17,6 +18,11 @@ Route::middleware('guest')->group(function () {
         ->name('auth.github');
 
     Route::get('auth/github/callback', [GithubController::class, 'github_callback']);
+
+    Route::get('login/google/redirect', [GoogleController::class, 'redirect'])
+        ->name('auth.google');
+
+    Route::get('auth/google/callback', [GoogleController::class, 'google_callback']);
 
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
