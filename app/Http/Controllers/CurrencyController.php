@@ -28,11 +28,13 @@ class CurrencyController extends Controller
 
         $response_body = json_decode($response->getBody());
 
-        return view('currencies.index', compact('response_body'));
+        return view('currencies.index', with([
+            'response_body' => $response_body,
+        ]));
     }
 
     /**
-     * Receive 'have', 'want' and 'amount' from the request and return a response with converted amount
+     * Receive 'have', 'want' and 'amount' from the request and return a response with dynamic title and converted amount
      *
      * @param Request $request
      * @return JsonResponse
@@ -61,6 +63,11 @@ class CurrencyController extends Controller
 
         $response_body = json_decode($response->getBody());
 
-        return compact('response_body');
+        $page_title = $response_body->old_amount . ' ' . $response_body->old_currency . ' ' . 'to' . ' ' . $response_body->new_currency;
+
+        return back()->with([
+            'page_title' => $page_title,
+            'convert_response' => $response_body,
+        ]);
     }
 }
