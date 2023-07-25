@@ -4,6 +4,7 @@ A web application that consumes an external API to list and convert currencies b
 
 ## Features
 
+-   Social Accounts(Google, Github) using Laravel Socialite
 -   Register with email verification
 -   Reset password through email
 -   List and convert currencies
@@ -15,59 +16,36 @@ A web application that consumes an external API to list and convert currencies b
 Clone the project
 
 ```bash
-git clone  https://github.com/Peagah-Vieira/Laravel-Currencies-Application
+git clone  https://github.com/Peagah-Vieira/Laravel-Currencies-Application.git
 ```
 
-Install the dependencies
+Switch to the repo folder
+
+```bash
+cd Laravel-Currencies-Application
+```
+
+Install all the dependencies using composer
 
 ```bash
 composer install
+```
+
+Install all the dependencies using npm
+
+```bash
 npm install
 ```
 
-Change environment variables
+Copy the example env file and make the required configuration changes in the .env file
 
 ```bash
-# Laravel Configuration
-# APP_NAME=Laravel-Currency
-# APP_ENV=local
-# APP_KEY="CHANGE-ME"
-# APP_DEBUG=true
-# APP_URL="CHANGE-ME"
+cp .env.example .env
+```
+Generate a new application key
 
-# MySQL Configuration
-# DB_CONNECTION=mysql
-# DB_HOST=127.0.0.1
-# DB_PORT=3306
-# DB_DATABASE="CHANGE-ME"
-# DB_USERNAME="CHANGE-ME"
-# DB_PASSWORD="CHANGE-ME"
-
-# PostgreSQL Configuration
-# DB_CONNECTION=pgsql
-# DB_HOST=127.0.0.1
-# DB_PORT=5432
-# DB_DATABASE="CHANGE-ME"
-# DB_USERNAME="CHANGE-ME"
-# DB_PASSWORD="CHANGE-ME"
-
-# Mailer Configuration
-# MAIL_MAILER=smtp
-# MAIL_HOST=smtp.gmail.com
-# MAIL_PORT=465
-# MAIL_USERNAME="CHANGE-ME"
-# MAIL_PASSWORD="CHANGE-ME"
-# MAIL_ENCRYPTION="CHANGE-ME"
-# MAIL_FROM_ADDRESS="CHANGE-ME"
-# MAIL_FROM_NAME="CHANGE-ME"
-
-# Currency list API Configuration
-# CURRENCY_API_LIST_URL="CHANGE-ME"
-# CURRENCY_API_LIST_KEY="CHANGE-ME"
-
-# Currency convert API Configuration
-# CURRENCY_API_CONVERT_URL ="CHANGE-ME"
-# CURRENCY_API_CONVERT_KEY ="CHANGE-ME"
+```bash
+php artisan key:generate
 ```
 
 Build CSS and JS assets
