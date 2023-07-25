@@ -56,13 +56,13 @@
 
         <div class="grid gap-4 grid-cols-2 grid-rows-2">
             <div class="grid grid-cols-1 gap-4">
-                <a href="{{ route('auth.github') }}"
+                <a href="login/github/redirect"
                     class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                     {{ __('GitHub') }}
                 </a>
             </div>
             <div class="grid grid-cols-1 gap-4">
-                <a href="{{ route('auth.google') }}"
+                <a href="login/google/redirect"
                     class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                     {{ __('Google') }}
                 </a>

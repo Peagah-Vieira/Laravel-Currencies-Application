@@ -4,25 +4,18 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
-use App\Http\Controllers\Auth\GithubController;
-use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\SocialLoginController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-    Route::get('login/github/redirect', [GithubController::class, 'redirect'])
-        ->name('auth.github');
+    Route::get('login/{provider}/redirect', [SocialLoginController::class, 'redirect_to_provider']);
 
-    Route::get('auth/github/callback', [GithubController::class, 'github_callback']);
-
-    Route::get('login/google/redirect', [GoogleController::class, 'redirect'])
-        ->name('auth.google');
-
-    Route::get('auth/google/callback', [GoogleController::class, 'google_callback']);
+    Route::get('auth/{provider}/callback', [SocialLoginController::class, 'handle_provider_callback']);
 
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
