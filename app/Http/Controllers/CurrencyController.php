@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 
 class CurrencyController extends Controller
 {
-    public function list_currencies()
+    /**
+     * Returns a list of currencies through a JsonResponse for the 'index' view
+     *
+     * @return JsonResponse
+     */
+    public function index()
     {
         $client = new Client();
 
@@ -23,10 +28,16 @@ class CurrencyController extends Controller
 
         $response_body = json_decode($response->getBody());
 
-        return view('currencies.list', compact('response_body'));
+        return view('currencies.index', compact('response_body'));
     }
 
-    public function convert_currencies()
+    /**
+     * Receive 'have', 'want' and 'amount' from the request and return a response with converted amount
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function convert_currencies(Request $request)
     {
         $headers = [
             'X-RapidAPI-Key' => env('CURRENCY_API_CONVERT_KEY'),
@@ -40,9 +51,9 @@ class CurrencyController extends Controller
 
         $params = [
             'query' => [
-                'have' => 'USD',
-                'want' => 'EUR',
-                'amount' => 5000,
+                'have' => $request->have,
+                'want' => $request->want,
+                'amount' => $request->amount,
             ],
         ];
 
@@ -50,6 +61,6 @@ class CurrencyController extends Controller
 
         $response_body = json_decode($response->getBody());
 
-        return view('currencies.convert', compact('response_body'));
+        return compact('response_body');
     }
 }

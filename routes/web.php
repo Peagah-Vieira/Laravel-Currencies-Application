@@ -20,8 +20,8 @@ Route::get('/', function () {
 });
 
 Route::prefix('currencies')->group(function () {
-    Route::get('list', [CurrencyController::class, 'list_currencies'])->name('currencies.list');
-    Route::get('convert', [CurrencyController::class, 'convert_currencies'])->name('currencies.convert');
+    Route::get('index', [CurrencyController::class, 'index'])->name('currencies.index');
+    Route::post('convert', [CurrencyController::class, 'convert_currencies'])->name('currencies.convert');
 });
 
 Route::get('/dashboard', function () {
