@@ -140,6 +140,7 @@ return [
         'register' => [
             \Filament\Widgets\AccountWidget::class,
             \Filament\Widgets\FilamentInfoWidget::class,
+            \Awcodes\Overlook\Overlook::class,
         ],
     ],
 
