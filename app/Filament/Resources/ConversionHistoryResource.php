@@ -3,76 +3,61 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ConversionHistoryResource\Pages;
-use App\Filament\Resources\ConversionHistoryResource\RelationManagers;
 use App\Models\ConversionHistory;
-use Filament\Forms;
-use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Carbon\Carbon;
 
 class ConversionHistoryResource extends Resource
 {
     protected static ?string $model = ConversionHistory::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-clock';
 
-    public static function form(Form $form): Form
+    protected static ?string $navigationGroup = 'Currencies';
+
+    public static function canCreate(): bool
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('old_currency')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('new_currency')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('old_amount')
-                    ->required(),
-                Forms\Components\TextInput::make('new_amount')
-                    ->required(),
-            ]);
+        return false;
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('old_currency'),
-                Tables\Columns\TextColumn::make('new_currency'),
-                Tables\Columns\TextColumn::make('old_amount'),
-                Tables\Columns\TextColumn::make('new_amount'),
+                Tables\Columns\TextColumn::make('old_currency')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('new_currency')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('old_amount')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('new_amount')
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
+                    ->searchable()
+                    ->sortable()
+                    ->date()
+                    ->description(fn ($record) => Carbon::parse($record->created_at)->format('H:i:s')),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
+                    ->searchable()
+                    ->sortable()
+                    ->date()
+                    ->description(fn ($record) => Carbon::parse($record->created_at)->format('H:i:s')),
+            ])->defaultSort('id')
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-    
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListConversionHistories::route('/'),
-            'create' => Pages\CreateConversionHistory::route('/create'),
-            'edit' => Pages\EditConversionHistory::route('/{record}/edit'),
         ];
-    }    
+    }
 }
