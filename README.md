@@ -4,10 +4,12 @@ A web application that consumes an external API to list and convert currencies b
 
 ## Features
 
+-   List and convert currencies through external API
+-   Currencies conversion history
 -   Social Accounts(Google, Github) using Laravel Socialite
+-   Administration panel with more informations about currencies
 -   Register with email verification
 -   Reset password through email
--   List and convert currencies
 -   Authentication middleware using Breeze
 -   PHPUnit test and Browsers tests using Laravel Dusk
 
@@ -42,6 +44,7 @@ Copy the example env file and make the required configuration changes in the .en
 ```bash
 cp .env.example .env
 ```
+
 Generate a new application key
 
 ```bash
@@ -97,3 +100,5 @@ Browser tests with Laravel Dusk:
 [Currency List](https://app.freecurrencyapi.com/)
 
 [Currency Converter](https://rapidapi.com/apininjas/api/currency-converter-by-api-ninjas/)
+
+[Filament](https://filamentphp.com)
