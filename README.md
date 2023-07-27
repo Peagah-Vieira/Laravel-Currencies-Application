@@ -14,6 +14,29 @@ A web application that consumes an external API to list and convert currencies b
 -   Authentication middleware using Breeze
 -   PHPUnit test and Browsers tests using Laravel Dusk
 
+## Screenshots
+
+<details>
+  <summary>Admin Dashboard</summary>
+
+  ![admin_dashboard](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/265b355c-3bd2-4d82-a2c0-4af69f094ed5)
+
+</details>
+
+<details>
+  <summary>Conversion Histories</summary>
+
+  ![conversion_histories](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/4f9fb84e-92f5-4546-9057-977050719c63)
+
+</details>
+
+<details>
+  <summary>Currencies List</summary>
+
+  ![currencies_list](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/b449ba87-e788-4fa5-ac0f-f0fb0fe0d957)
+
+</details>
+
 ## Running locally
 
 Clone the project
