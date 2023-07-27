@@ -13,6 +13,8 @@ class ConversionHistoryResource extends Resource
 {
     protected static ?string $model = ConversionHistory::class;
 
+    protected static ?int $navigationSort = 1;
+
     protected static ?string $navigationIcon = 'heroicon-o-clock';
 
     protected static ?string $navigationGroup = 'Currencies';

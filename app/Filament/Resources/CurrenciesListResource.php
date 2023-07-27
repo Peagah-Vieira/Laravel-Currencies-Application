@@ -12,6 +12,8 @@ class CurrenciesListResource extends Resource
 {
     protected static ?string $model = CurrenciesList::class;
 
+    protected static ?int $navigationSort = 2;
+
     protected static ?string $breadcrumb = 'Currencies List';
 
     protected static ?string $label = 'Currencies List';
