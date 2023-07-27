@@ -1,9 +1,8 @@
-[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/blob/main/README_BR.md)
 # Laravel Currencies Web Application
 
-A web application that consumes an external API to list and convert currencies built with Laravel.
+Um aplicativo da web que consome uma API externa para listar e converter moedas criadas com o Laravel.
 
-## Features
+## Funcionalidades
 
 -   List and convert currencies through external API
 -   Currencies conversion history
@@ -14,85 +13,85 @@ A web application that consumes an external API to list and convert currencies b
 -   Authentication middleware using Breeze
 -   PHPUnit test and Browsers tests using Laravel Dusk
 
-## Running locally
+## Executando localmente
 
-Clone the project
+Clonar o projeto
 
 ```bash
 git clone  https://github.com/Peagah-Vieira/Laravel-Currencies-Application.git
 ```
 
-Switch to the repo folder
+Alternar para a pasta repo
 
 ```bash
 cd Laravel-Currencies-Application
 ```
 
-Install all the dependencies using composer
+Instale todas as dependências usando o composer
 
 ```bash
 composer install
 ```
 
-Install all the dependencies using npm
+Instale todas as dependências usando npm
 
 ```bash
 npm install
 ```
 
-Copy the example env file and make the required configuration changes in the .env file
+Copie o arquivo env de exemplo e faça as alterações de configuração necessárias no arquivo .env
 
 ```bash
 cp .env.example .env
 ```
 
-Generate a new application key
+Gerar uma nova chave de aplicativo
 
 ```bash
 php artisan key:generate
 ```
 
-Build CSS and JS assets
+Crie ativos CSS e JS
 
 ```bash
 npm run dev
 ```
 
-Start the server
+Iniciar o servidor
 
 ```bash
 php artisan serve
 ```
 
-## Running the tests
+## Executando os testes
 
-To run the PHPUnit tests, run the following command
+Para executar os testes PHPUnit, execute o seguinte comando
 
 ```bash
 php artisan test
 ```
 
-To run the Laravel Dusk browser tests, run the following command
+Para executar os testes do navegador Laravel Dusk, execute o seguinte comando
 
 ```bash
-php artisan dusk
+php
 ```
 
-## Learnings
+## Aprendizados
 
 Laravel Breeze:
 
 (https://laravel.com/docs/10.x/starter-kits)
 
-PHPUnit tests in Laravel:
+Testes PHPUnit no Laravel:
 
 (https://semaphoreci.com/community/tutorials/getting-started-with-phpunit-in-laravel)
 
-Browser tests with Laravel Dusk:
+Testes de navegador com Laravel Dusk:
 
 (https://laravel.com/docs/10.x/dusk)
 
-## Documentation
+## Documentação
 
 [PHP](https://www.php.net)
 
