@@ -22,6 +22,7 @@ class CurrencyController extends Controller
         $params = [
             'query' => [
                 'apikey' => env('CURRENCY_API_LIST_KEY'),
+                'currencies' => "USD,BRL,AUD,CNY,EGP,INR,IRR,JPY,KRW,MXN,ZAR,ADA,LTC,MATIC,AVAX,DOT,SOL,XRP,BNB,ETH,BTC,XPD,XPT,ZWL,ZMW,ZMK,ZAR,YER",
             ],
         ];
 
