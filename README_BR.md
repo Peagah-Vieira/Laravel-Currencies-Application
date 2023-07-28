@@ -2,6 +2,7 @@
 
 Um aplicativo da web que consome uma API externa para listar e converter moedas criadas com o Laravel.
 
+Agradecimentos especiais para [Amanda](https://github.com/seugirdorx) quem fez o [Figma design](https://www.figma.com/file/OZWH5JjFzwFDqO7G0UijYS/Projeto_Conversor?type=design&node-id=0-1&mode=design).
 ## Funcionalidades
 
 -   List and convert currencies through external API
