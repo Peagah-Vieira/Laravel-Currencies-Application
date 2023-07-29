@@ -51,16 +51,22 @@ Alternar para a pasta repo
 cd Laravel-Currencies-Application
 ```
 
-Instale todas as dependências usando o composer
-
-```bash
-composer install
-```
-
 Instale todas as dependências usando npm
 
 ```bash
 npm install
+```
+
+Crie um repositório com uma compilação de produção do aplicativo
+
+```bash
+npm run build
+```
+
+Instale todas as dependências usando o composer
+
+```bash
+composer install
 ```
 
 Copie o arquivo env de exemplo e faça as alterações de configuração necessárias no arquivo .env

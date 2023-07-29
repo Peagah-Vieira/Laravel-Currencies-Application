@@ -52,16 +52,22 @@ Switch to the repo folder
 cd Laravel-Currencies-Application
 ```
 
-Install all the dependencies using composer
-
-```bash
-composer install
-```
-
 Install all the dependencies using npm
 
 ```bash
 npm install
+```
+
+Create a repository with a production build of app
+
+```bash
+npm run build
+```
+
+Install all the dependencies using composer
+
+```bash
+composer install
 ```
 
 Copy the example env file and make the required configuration changes in the .env file
