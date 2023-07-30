@@ -25,7 +25,6 @@ class CurrenciesList extends Model
         $params = [
             'query' => [
                 'apikey' => env('CURRENCY_API_LIST_KEY'),
-                'currencies' => "USD,BRL,AUD,CNY,EGP,INR,IRR,JPY,KRW,MXN,ZAR,ADA,LTC,MATIC,AVAX,DOT,SOL,XRP,BNB,ETH,BTC,XPD,XPT,ZWL,ZMW,ZMK,ZAR,YER",
             ],
         ];
 
@@ -34,7 +33,18 @@ class CurrenciesList extends Model
         $response_body = json_decode($response->getBody(), true);
 
         $currencies = Arr::map($response_body['data'], function ($item) {
-            return $item;
+            return Arr::only(
+                $item,
+                [
+                    'symbol',
+                    'name',
+                    'symbol_native',
+                    'decimal_digits',
+                    'rounding',
+                    'code',
+                    'name_plural',
+                ]
+            );
         });
 
         return array_values($currencies);
