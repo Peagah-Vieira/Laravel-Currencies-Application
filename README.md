@@ -20,9 +20,31 @@ Special thanks to [Amanda](https://github.com/seugirdorx) who made the [Figma de
 ## Screenshots
 
 <details>
+  <summary>Homepage</summary>
+
+  ![Página Principal](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/3702fbe7-aa06-4117-99d6-3146b1851d73)
+
+</details>
+
+<details>
+  <summary>Register</summary>
+
+  ![Cadastro](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/b44f4b1f-0137-4fab-b28e-0b7da8db7181)
+
+</details>
+
+<details>
+  <summary>Login</summary>
+
+  ![Login](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/1768b916-d760-4e77-9fd0-4c7b481b6193)
+
+</details>
+
+
+<details>
   <summary>Admin Dashboard</summary>
 
-  ![admin_dashboard](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/265b355c-3bd2-4d82-a2c0-4af69f094ed5)
+  ![AdminPanel](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/efd0aa46-8947-4048-9490-685f343899ff)
 
 </details>
 
@@ -36,7 +58,7 @@ Special thanks to [Amanda](https://github.com/seugirdorx) who made the [Figma de
 <details>
   <summary>Currencies List</summary>
 
-  ![currencies_list](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/b449ba87-e788-4fa5-ac0f-f0fb0fe0d957)
+  ![CurrenciesList](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/d1fffb64-802c-4cff-b5b8-1f298ae5f662)
 
 </details>
 

@@ -5,21 +5,44 @@ Um aplicativo da web que consome uma API externa para listar e converter moedas 
 Agradecimentos especiais para [Amanda](https://github.com/seugirdorx) quem fez o [Figma design](https://www.figma.com/file/OZWH5JjFzwFDqO7G0UijYS/Projeto_Conversor?type=design&node-id=0-1&mode=design).
 ## Funcionalidades
 
--   List and convert currencies through external API
--   Currencies conversion history
--   Social Accounts(Google, Github) using Laravel Socialite
--   Administration panel with more informations about currencies
--   Register with email verification
--   Reset password through email
--   Authentication middleware using Breeze
--   PHPUnit test and Browsers tests using Laravel Dusk
+- Liste e converta moedas por meio de API externa
+- Histórico de conversão de moedas
+- UUID em vez de ID como chave primária
+- Contas sociais (Google, Github) usando Laravel Socialite
+- Painel de administração com mais informações sobre moedas
+- Registre-se com verificação de e-mail
+- Redefinir senha por e-mail
+- Middleware de autenticação usando Breeze
+- Teste de PHPUnit e testes de navegadores usando Laravel Dusk
 
 ## Capturas de tela
 
 <details>
+  <summary>Homepage</summary>
+
+  ![Página Principal](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/3702fbe7-aa06-4117-99d6-3146b1851d73)
+
+</details>
+
+<details>
+  <summary>Register</summary>
+
+  ![Cadastro](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/b44f4b1f-0137-4fab-b28e-0b7da8db7181)
+
+</details>
+
+<details>
+  <summary>Login</summary>
+
+  ![Login](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/1768b916-d760-4e77-9fd0-4c7b481b6193)
+
+</details>
+
+
+<details>
   <summary>Admin Dashboard</summary>
 
-  ![admin_dashboard](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/265b355c-3bd2-4d82-a2c0-4af69f094ed5)
+  ![AdminPanel](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/efd0aa46-8947-4048-9490-685f343899ff)
 
 </details>
 
@@ -33,7 +56,7 @@ Agradecimentos especiais para [Amanda](https://github.com/seugirdorx) quem fez o
 <details>
   <summary>Currencies List</summary>
 
-  ![currencies_list](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/b449ba87-e788-4fa5-ac0f-f0fb0fe0d957)
+  ![CurrenciesList](https://github.com/Peagah-Vieira/Laravel-Currencies-Application/assets/105545343/d1fffb64-802c-4cff-b5b8-1f298ae5f662)
 
 </details>
 
@@ -57,7 +80,7 @@ Instale todas as dependências usando npm
 npm install
 ```
 
-Crie um repositório com uma compilação de produção do aplicativo
+Crie CSS e JS assets
 
 ```bash
 npm run build
@@ -79,12 +102,6 @@ Gerar uma nova chave de aplicativo
 
 ```bash
 php artisan key:generate
-```
-
-Crie ativos CSS e JS
-
-```bash
-npm run dev
 ```
 
 Iniciar o servidor
@@ -120,6 +137,10 @@ Testes PHPUnit no Laravel:
 Testes de navegador com Laravel Dusk:
 
 (https://laravel.com/docs/10.x/dusk)
+
+Benefícios de mudar para UUIDs:
+
+(https://www.westagilelabs.com/blog/say-goodbye-to-auto-increment-ids-the-benefits-of-switching-to-uuids/)
 
 ## Documentação
 
