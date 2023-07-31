@@ -4,10 +4,12 @@
 A web application that consumes an external API to list and convert currencies built with Laravel.
 
 Special thanks to [Amanda](https://github.com/seugirdorx) who made the [Figma design](https://www.figma.com/file/OZWH5JjFzwFDqO7G0UijYS/Projeto_Conversor?type=design&node-id=0-1&mode=design).
+
 ## Features
 
 -   List and convert currencies through external API
 -   Currencies conversion history
+-   UUID instead ID as primary key
 -   Social Accounts(Google, Github) using Laravel Socialite
 -   Administration panel with more informations about currencies
 -   Register with email verification
@@ -58,7 +60,7 @@ Install all the dependencies using npm
 npm install
 ```
 
-Create a repository with a production build of app
+Build CSS and JS assets
 
 ```bash
 npm run build
@@ -80,12 +82,6 @@ Generate a new application key
 
 ```bash
 php artisan key:generate
-```
-
-Build CSS and JS assets
-
-```bash
-npm run dev
 ```
 
 Start the server
@@ -121,6 +117,10 @@ PHPUnit tests in Laravel:
 Browser tests with Laravel Dusk:
 
 (https://laravel.com/docs/10.x/dusk)
+
+Benefits of Switching to UUIDs:
+
+(https://www.westagilelabs.com/blog/say-goodbye-to-auto-increment-ids-the-benefits-of-switching-to-uuids/)
 
 ## Documentation
 
